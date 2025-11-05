@@ -15,7 +15,9 @@ public class TestRoleModel {
 //		System.out.println(model.nextPk());
 //		testAdd();
 //		testDelete();
-		testUpdate();
+//		testUpdate();
+//		testFindByPk();
+		testFindByName();
 
 	}
 
@@ -57,13 +59,13 @@ public class TestRoleModel {
 	public static void testUpdate() {
 
 		RoleBean bean = new RoleBean();
-		bean.setName("developer");
+		bean.setName("account");
 		bean.setDescription("hr");
 		bean.setCreatedBy("admin");
 		bean.setModifiedBy("admin");
 		bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
 		bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
-		bean.setId(1);
+		bean.setId(2);
 
 		RoleModel model = new RoleModel();
 		try {
@@ -73,6 +75,44 @@ public class TestRoleModel {
 			e.printStackTrace();
 		}
 		System.out.println("Record update successfully");
+	}
+
+	public static void testFindByPk() {
+
+		RoleModel model = new RoleModel();
+		try {
+			RoleBean bean = model.findByPk(1);
+
+			if (bean == null) {
+				System.out.println("Test Find by pk fail");
+
+			}
+			System.out.println(bean.getName());
+			System.out.println(bean.getDescription());
+
+		} catch (ApplicationException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	public static void testFindByName() {
+
+		RoleModel model = new RoleModel();
+		try {
+			RoleBean bean = model.findByName("account");
+
+			if (bean == null) {
+				System.out.println("Test Find by name fail");
+
+			}
+			System.out.println(bean.getId());
+			System.out.println(bean.getDescription());
+
+		} catch (ApplicationException e) {
+
+			e.printStackTrace();
+		}
 	}
 
 }

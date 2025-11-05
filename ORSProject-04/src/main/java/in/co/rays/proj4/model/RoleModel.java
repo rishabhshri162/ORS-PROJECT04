@@ -145,4 +145,73 @@ public class RoleModel {
 		}
 	}
 
+	// Find by pk method
+
+	public RoleBean findByPk(long pk) throws ApplicationException {
+
+		RoleBean bean = null;
+		Connection conn = null;
+
+		StringBuffer sql = new StringBuffer("select * from st_role where id =?");
+
+		try {
+			conn = JDBCDataSource.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setLong(1, pk);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				bean = new RoleBean();
+				bean.setId(rs.getLong(1));
+				bean.setName(rs.getString(2));
+				bean.setDescription(rs.getString(3));
+				bean.setCreatedBy(rs.getString(4));
+				bean.setModifiedBy(rs.getString(5));
+				bean.setCreatedDatetime(rs.getTimestamp(6));
+				bean.setModifiedDatetime(rs.getTimestamp(7));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (Exception e) {
+			throw new ApplicationException("Exception: Exception is getting user by pk" + e.getMessage());
+
+		} finally {
+			JDBCDataSource.closeConnection(conn);
+		}
+		return bean;
+
+	}
+	
+	public RoleBean findByName(String name) throws ApplicationException {
+
+		RoleBean bean = null;
+		Connection conn = null;
+
+		StringBuffer sql = new StringBuffer("select * from st_role where name =?");
+
+		try {
+			conn = JDBCDataSource.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, name);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				bean = new RoleBean();
+				bean.setId(rs.getLong(1));
+				bean.setName(rs.getString(2));
+				bean.setDescription(rs.getString(3));
+				bean.setCreatedBy(rs.getString(4));
+				bean.setModifiedBy(rs.getString(5));
+				bean.setCreatedDatetime(rs.getTimestamp(6));
+				bean.setModifiedDatetime(rs.getTimestamp(7));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (Exception e) {
+			throw new ApplicationException("Exception: Exception is getting user by name" + e.getMessage());
+
+		} finally {
+			JDBCDataSource.closeConnection(conn);
+		}
+		return bean;
+	
+	}
 }
