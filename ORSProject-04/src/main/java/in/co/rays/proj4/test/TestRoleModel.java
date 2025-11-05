@@ -1,7 +1,10 @@
 package in.co.rays.proj4.test;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import in.co.rays.proj4.bean.RoleBean;
 import in.co.rays.proj4.exception.ApplicationException;
@@ -17,7 +20,8 @@ public class TestRoleModel {
 //		testDelete();
 //		testUpdate();
 //		testFindByPk();
-		testFindByName();
+//		testFindByName();
+		testSearch();
 
 	}
 
@@ -111,6 +115,29 @@ public class TestRoleModel {
 
 		} catch (ApplicationException e) {
 
+			e.printStackTrace();
+		}
+	}
+
+	public static void testSearch() {
+		try {
+			RoleModel model = new RoleModel();
+			RoleBean bean = new RoleBean();
+			List list = new ArrayList();
+			bean.setName("developer");
+			list = model.search(bean, 0, 0);
+			if (list.size() < 0) {
+				System.out.println("Test Serach fail");
+			}
+			Iterator it = list.iterator();
+			while (it.hasNext()) {
+				bean = (RoleBean) it.next();
+				System.out.println(bean.getId());
+				System.out.println(bean.getName());
+				System.out.println(bean.getDescription());
+				System.out.println(bean.getCreatedBy());
+			}
+		} catch (ApplicationException e) {
 			e.printStackTrace();
 		}
 	}
