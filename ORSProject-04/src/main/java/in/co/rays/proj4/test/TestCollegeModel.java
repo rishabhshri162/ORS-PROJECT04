@@ -24,13 +24,13 @@ public class TestCollegeModel {
 
 //		CollegeModel model = new CollegeModel();
 //		System.out.println(model.nextPk());
-
-//		testAdd();
+//
+//	testAdd();
 //		testDelete();
-//		testUpdate();
+		testUpdate();
 //		testFindByPk();
 //		testFindByName();
-		testSearch();
+//		testSearch();
 
 	}
 
@@ -75,7 +75,7 @@ public class TestCollegeModel {
 
 		CollegeBean bean = new CollegeBean();
 		bean.setId(2);
-		bean.setName("Indraprastha university");
+		bean.setName("Amity university");
 		bean.setAddress("noida");
 		bean.setState("Uttar Pradesh");
 		bean.setCity("noida");

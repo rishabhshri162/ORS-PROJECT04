@@ -52,11 +52,11 @@ public class CollegeModel {
 		Connection conn = null;
 		int pk = 0;
 
-//		CollegeBean duplicateCollegeName = findByName(bean.getName());
-//
-//		if (duplicateCollegeName != null) {
-//			throw new DuplicateRecordException("College Name already exists");
-//		}
+		CollegeBean existCollegeName = findByName(bean.getName());
+
+		if (existCollegeName != null) {
+			throw new DuplicateRecordException("College Name already exists");
+		}
 
 		try {
 			conn = JDBCDataSource.getConnection();
@@ -124,11 +124,11 @@ public class CollegeModel {
 
 		Connection conn = null;
 
-//		CollegeBean beanExist = findByName(bean.getName());
-//
-//		if (beanExist != null && beanExist.getId() != bean.getId()) {
-//			throw new DuplicateRecordException("College is already exist");
-//		}
+		CollegeBean existCollegeName = findByName(bean.getName());
+
+		if (existCollegeName != null && existCollegeName.getId() != bean.getId()) {
+			throw new DuplicateRecordException("College is already exist");
+		}
 
 		try {
 			conn = JDBCDataSource.getConnection();
