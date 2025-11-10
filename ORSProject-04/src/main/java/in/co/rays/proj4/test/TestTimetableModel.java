@@ -173,7 +173,7 @@ public class TestTimetableModel {
 			TimetableBean bean = model.checkBySemester(1L, 2L, "First", date);
 
 			if (bean == null) {
-				System.out.println("Test Find by rollNo fail");
+				System.out.println("Test Find by semester fail");
 
 			}
 			System.out.println("ID: " + bean.getId());
