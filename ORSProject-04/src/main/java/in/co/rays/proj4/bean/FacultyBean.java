@@ -1,8 +1,9 @@
+
 package in.co.rays.proj4.bean;
 
 import java.util.Date;
 
-public class FacultyBean extends BaseBean{
+public class FacultyBean extends BaseBean {
 
 	private String firstName;
 	private String lastName;
@@ -113,4 +114,15 @@ public class FacultyBean extends BaseBean{
 		this.subjectName = subjectName;
 	}
 
+	@Override
+	public String getKey() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
