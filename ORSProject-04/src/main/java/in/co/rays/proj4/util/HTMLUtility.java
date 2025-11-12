@@ -88,7 +88,7 @@ public class HTMLUtility {
 
 	public static void main(String[] args) throws Exception {
 
-		// testGetListByMap();
+		//testGetListByMap();
 
 		testGetListByList();
 
