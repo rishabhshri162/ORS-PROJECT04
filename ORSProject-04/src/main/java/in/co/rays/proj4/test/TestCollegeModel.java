@@ -30,7 +30,7 @@ public class TestCollegeModel {
 //		testUpdate();
 //		testFindByPk();
 //		testFindByName();
-//		testSearch();
+		testSearch();
 
 	}
 
